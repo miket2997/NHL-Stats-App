@@ -7,7 +7,6 @@ function ThemeContextProvider(props){
 
     function toggleTheme(){
         setColor(prevColor => prevColor === "dark" ? "light" : "dark")
-        //console.log(color)
     }
 
     return (
