@@ -1,0 +1,612 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,100&family=Montserrat:ital,wght@1,500&display=swap');
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+button, select {
+  cursor: pointer;
+  font-family: monospace;
+  letter-spacing: 1px;
+}
+
+.toggleBtn.light {
+  background: transparent;
+  border: none;
+  color: #000;
+  cursor: pointer;
+  font-size: 2rem;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.toggleBtn.dark {
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+}
+
+.nav--links.dark{
+  color: white;
+}
+
+
+.nav {
+  display: flex;
+  align-items: center;
+  height: auto;
+  justify-content: space-evenly;
+  padding: 20px;
+  border: 1px solid black;
+}
+
+.nav.dark, .footer.dark {
+  background-image: linear-gradient(to right, #554c4c 0%, rgb(17, 16, 16) 100%);
+  color: white;
+}
+
+.nav.light, .footer.light {
+  background-color: hwb(234 52% 22% / 0.425);
+  color: black;
+}
+
+.nav--links {
+  background-color: transparent;
+  margin: 10px 5px;
+  padding: 10px 5px;
+  font-size: x-large;
+  text-decoration: none;
+  color: inherit;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  
+}
+
+
+
+.roster {
+  height: auto;
+  width: 100%;
+}
+
+.details {
+  height: auto;
+  width: 100%;
+}
+
+.home.dark,
+.roster.dark,
+.details.dark,
+.comparison.dark {
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
+  color: wheat;
+}
+
+.home.light,
+.roster.light,
+.details.light,
+.comparison.light {
+  background-color: hwb(233 80% 5% / 0.425);
+}
+
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 85vh;
+}
+
+.home--label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 40px;
+  font-family: monospace;
+  letter-spacing: 1px;
+  padding: 10px 0 ;
+}
+
+.home--team--select {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 10px;
+  margin: 20px 0;
+  font-family: monospace;
+  cursor: pointer;
+}
+
+
+
+.main--title {
+  font-family: monospace;
+  font-size: 50px;
+  padding: 10px 0;
+  color: brown;
+  letter-spacing: 1px;
+}
+
+.selected--team--info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.selected--team--info > h2 {
+  font-size: 36px;
+  font-family: monospace;
+  letter-spacing: 1px;
+  margin: 20px 0;
+}
+
+.selected--team--info > p {
+  font-size: 28px;
+  font-family: monospace;
+  letter-spacing: 1px;
+  margin: 20px 0;
+}
+
+.light .selected--team--info > a {
+  text-decoration: none;
+  color: rgb(0, 0, 255);
+  font-family: monospace;
+  font-size: 28px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.dark .selected--team--info > a {
+  text-decoration: none;
+  color: rgb(95, 95, 230);
+  font-family: monospace;
+  font-size: 28px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+
+.roster--button, .reset--btn {
+  padding: 10px 20px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.roster {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: monospace;
+  letter-spacing: 1px;
+  max-width: 100%;
+}
+
+
+
+.roster--table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.roster--table thead {
+  font-style: bold;
+  font-size: larger;
+}
+
+.roster--table th {
+  padding: 10px;
+  border: 1px solid #999;
+  text-align: left;
+}
+
+.roster--table td {
+  padding: 10px;
+  border: 1px solid #999;
+  text-align: left;
+}
+
+.roster--table td a {
+  color: red;
+  text-decoration: none;
+}
+
+.roster--page--btn {
+  padding: 10px 20px;
+  margin: 10px auto 10px 5px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.roster--title {
+  font-family: monospace;
+  margin: 10px 0;
+  font-size: 30px;
+  letter-spacing: 1px;
+}
+
+
+
+  
+.details {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  font-family: monospace;
+  letter-spacing: 1px;
+  font-size: larger;
+}
+
+.player--detail--table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.player--detail--table th, .player--detail--table td {
+  padding: 8px;
+  border-bottom: 1px dashed black;
+}
+
+.player--detail--table th {
+  background-color: #333;
+  color: white;
+}
+
+.player--stat--table, .goalie--table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.player--stat--table th, .player--stat--table td, .goalie--table th, .goalie--table td {
+  padding: 8px;
+  border-bottom: 1px dashed black;
+}
+
+.player--stat--table th, .goalie--table th {
+  background-color: #333;
+  color: white;
+}
+
+.no--stats {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px 0;
+  height: 25vh;
+}
+
+.navigate--buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.navigate--buttons > button {
+  margin: 5px;
+  padding: 10px 20px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.comparison {
+  height: 120vh;
+}
+
+.comparison, .comparison2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: monospace;
+  letter-spacing: 1px;
+}
+
+small {
+  margin: 20px 0;
+  font-size: larger;
+  font-style: italic;
+  text-align: center;
+}
+
+.comparison--h1 {
+  margin: 20px 0;
+  font-size: 40px;
+  text-align: center;
+}
+
+.comparison--label--team,
+.comparison--label--player,
+.team--two--label,
+.player--two--label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+
+.player--one--title,
+.player--two--title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.team--comparison,
+.player--select--comparison,
+.team--two--select,
+.player--two--select {
+  padding: 5px;
+  font-size: 14px;
+  width: fit-content;
+  font-family: monospace;
+  letter-spacing: 1px;
+}
+
+.comparison--reset,
+.compare--reset--two {
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.compare--submit {
+  background-color: green;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.comparison--display--one {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin-top: 10px;
+}
+
+.comparison--table--one,
+.comparison--table--two {
+  border-collapse: collapse;
+  width: 40%;
+}
+
+.light .comparison--table--one th,
+.light .comparison--table--two th {
+  background-color: lightgray;
+  border: 1px solid black;
+  padding: 5px;
+  text-align: left;
+}
+
+
+.dark .comparison--table--one th,
+.dark .comparison--table--two th {
+  background-color: rgb(37, 90, 131);
+  border: 1px solid black;
+  color: wheat;
+  padding: 5px;
+  text-align: left;
+}
+
+
+.comparison--table--one td,
+.comparison--table--two td {
+  border: 1px solid black;
+  padding: 5px;
+  text-align: left;
+}
+
+.goalie--comparison {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  margin-top: 10px;
+}
+
+.goalie--table--one,
+.goalie--table--two {
+  border-collapse: collapse;
+  width: 40%;
+}
+
+.light .goalie--table--one th,
+.light .goalie--table--two th {
+  background-color: lightgray;
+  border: 1px solid black;
+  padding: 5px;
+  text-align: left;
+}
+
+.dark .goalie--table--one th,
+.dark .goalie--table--two th {
+  background-color: rgb(37, 90, 131);
+  border: 1px solid black;
+  padding: 5px;
+  text-align: left;
+}
+
+.light .goalie--table--one td,
+.light .goalie--table--two td {
+  border: 1px solid black;
+  background-color: lightgray;
+  padding: 5px;
+  text-align: left;
+}
+
+.dark .goalie--table--one td,
+.dark .goalie--table--two td {
+  border: 1px solid black;
+  background-color: rgb(37, 90, 131);
+  padding: 5px;
+  text-align: left;
+}
+
+.comparison--to--home {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+}
+
+.no--player--one--stats, .no--playertwo--stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  margin-top: 10px;
+}
+
+.player--one--nostats--table, .no--player2--table {
+  width: 40%;
+  border-collapse: collapse;
+}
+
+.no--player2--table {
+  margin-left: 5px;
+}
+
+.light .player--one--nostats--table th,
+.light .no--player2--table th {
+  background-color: lightgray;
+  border: 1px solid black;
+  padding: 5px;
+  text-align: left;
+}
+
+.dark .player--one--nostats--table th,
+.dark .no--player2--table th {
+  background-color: rgb(37, 90, 131);
+  border: 1px solid black;
+  padding: 5px;
+  text-align: left;
+}
+
+.player--one--nostats--table td,
+.no--playertwo--stats td {
+  border: 1px solid black;
+  padding: 5px;
+  text-align: left;
+}
+
+.two--no--show {
+  margin-left: 5px;
+}
+
+
+.neither--stats {
+  text-align: center;
+  max-width: 90%;
+}
+
+
+
+.footer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px;
+  height: auto;
+  font-family: monospace;
+}
+
+.footer > p {
+  margin: 20px;
+  font-size: 20px;
+}
+
+@media (min-width: 300px) and (max-width: 400px) {
+  .home {
+    height: 115vh;
+    text-align: center;
+  }
+  .toggleBtn.light {
+    font-size: 1.15rem;
+    font-family: monospace;
+    color: darkgreen;
+    font-weight: 800;
+  }
+  .toggleBtn.dark {
+    font-size: 1.15rem;
+    font-family: monospace;
+    color: orange;
+  }
+
+  .nav--links {
+    font-size: 1rem;
+  }
+
+  .nav {
+    padding: 0;
+    height: fit-content;
+    max-width: 100%;
+  }
+
+  .roster {
+    font-size: 11px;
+  }
+
+  .goalie--comparison {
+    font-size: 7px;
+  }
+
+
+}
+
+@media (max-width: 500px) and (min-width: 401px) {
+  .toggleBtn.light {
+    font-size: 1.15rem;
+    font-family: monospace;
+    color: darkgreen;
+    font-weight: 800;
+  }
+  .toggleBtn.dark {
+    font-size: 1.15rem;
+    font-family: monospace;
+    color: orange;
+    font-weight: 800;
+  }
+
+  .nav--links {
+    font-size: 1rem;
+  }
+
+  .nav {
+    padding: 0;
+    height: fit-content;
+    max-width: 100%;
+  }
+
+  .home {
+    text-align: center;
+    height: 90vh;
+  }
+
+  .goalie--comparison {
+    font-size: 9.5px;
+  }
+ 
+
+}
