@@ -87,7 +87,7 @@ export default function Comparison(){
             setPlayerTwoName(res.data.people[0].fullName);
             console.log(playerTwoName)
             setPlayerTwoPosition(res.data.people[0].primaryPosition.name);
-            console.log(playerTwoPosition)
+            // console.log(playerTwoPosition)
             //console.log(res.data.people[0].primaryPosition.name)
         })
         .catch(err => console.log(err));
@@ -135,7 +135,7 @@ export default function Comparison(){
             )}
             <Comparison2 handleChange={handlePlayerTwoChange}/>
             <button className="compare--submit" onClick={handleCompareSubmit}>Compare</button>
-            {showStats && playerOnePosition != "Goalie" && playerTwoPosition != "Goalie" && playerOneStats && playerTwoStats && ( 
+            {showStats && playerOnePosition != "Goalie" && playerTwoPosition != "Goalie" && playerOneStats && playerTwoStats && playersForComparison1.length > 0 && ( 
             <div className="comparison--display--one">
                 <table className="comparison--table--one">
                     <thead>
@@ -205,7 +205,7 @@ export default function Comparison(){
             </table>
             </div>
             )}
-            {showStats && playerOnePosition === "Goalie" && playerTwoPosition === "Goalie" && (
+            {showStats && playerOnePosition === "Goalie" && playerTwoPosition === "Goalie" && playersForComparison1.length > 0 && (
                 <div className="goalie--comparison">
                     <table className="goalie--table--one">
                         <thead>
@@ -236,15 +236,15 @@ export default function Comparison(){
                             </tr>
                             <tr>
                                 <td>Save Percentage</td>
-                                <td>{playerOneStats.stat.savePercentage}</td>
+                                <td>{playerOneStats.stat.savePercentage.toFixed(3)}</td>
                             </tr>
                             <tr>
                                 <td>Goals Against</td>
-                                <td>{playerOneStats.stat.goalAgainstAverage}</td>
+                                <td>{playerOneStats.stat.goalAgainstAverage.toFixed(2)}</td>
                             </tr>
                             <tr>
                                 <td>PowerPlay Save Percentage</td>
-                                <td>{playerOneStats.stat.powerPlaySavePercentage}</td>
+                                <td>{playerOneStats.stat.powerPlaySavePercentage.toFixed(3)}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -277,21 +277,21 @@ export default function Comparison(){
                             </tr>
                             <tr>
                                 <td>Save Percentage</td>
-                                <td>{playerTwoStats.stat.savePercentage}</td>
+                                <td>{playerTwoStats.stat.savePercentage.toFixed(3)}</td>
                             </tr>
                             <tr>
                                 <td>Goals Against</td>
-                                <td>{playerTwoStats.stat.goalAgainstAverage}</td>
+                                <td>{playerTwoStats.stat.goalAgainstAverage.toFixed(2)}</td>
                             </tr>
                             <tr>
                                 <td>PowerPlay Save Percentage</td>
-                                <td>{playerTwoStats.stat.powerPlaySavePercentage}</td>
+                                <td>{playerTwoStats.stat.powerPlaySavePercentage.toFixed(3)}</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             )}
-            {!playerOneStats && playerTwoStats && (
+            {!playerOneStats && playerTwoStats && playersForComparison1.length > 0 && (
                 <div className="no--player--one--stats">
                     <h3>{playerOneName} has no stats to show</h3>
                     <table className="player--one--nostats--table">
@@ -329,7 +329,7 @@ export default function Comparison(){
                     </table>
                 </div>
             )}
-            {!playerTwoStats && playerOneStats && (
+            {!playerTwoStats && playerOneStats && playersForComparison1.length > 0 && (
                 <div className="no--playertwo--stats">
                     <table className="no--player2--table">
                         <thead>
@@ -367,7 +367,7 @@ export default function Comparison(){
                     <h3 className="two--no--show">{playerTwoName} has no stats to show.</h3>
                 </div>
             )}
-            {!playerOneStats && !playerTwoStats && (
+            {!playerOneStats && !playerTwoStats && playersForComparison1.length > 0 && (
              <h1 className="neither--stats">Neither player has any stats to show.</h1>
             )}
             <button className="comparison--to--home" onClick={() => navigate("/")}>Go to Home Page</button>

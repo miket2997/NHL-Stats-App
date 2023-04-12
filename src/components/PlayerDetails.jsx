@@ -79,7 +79,7 @@ export default function PlayerDetails(){
               
             )}
                 <br />
-                {stats.length === 0 && (
+                {stats.length === 0 && player.people && player.people.length > 0 && (
                     <h1 className="no--stats">No stats to show. Player has not appeared in any games this season.</h1>
                 )}
                 {stats.length > 0 && player.people[0].primaryPosition.name != "Goalie" && (
@@ -141,7 +141,7 @@ export default function PlayerDetails(){
                     </tbody>
                 </table>
             )}
-            {stats.length > 0 && player.people[0].primaryPosition.name === "Goalie" && (
+            {stats.length > 0 && player.people[0].primaryPosition.name === "Goalie" && player.people && player.people.length > 0 && (
                 <table className="goalie--table">
                     <thead>
                     <tr>

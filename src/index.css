@@ -381,7 +381,7 @@ small {
 
 .comparison--display--one {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 80%;
   margin-top: 10px;
 }
