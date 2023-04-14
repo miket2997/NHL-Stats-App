@@ -73,3 +73,4 @@ export default function Comparison2(props){
         </div>
     )
 }
+

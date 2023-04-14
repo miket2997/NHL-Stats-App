@@ -66,7 +66,6 @@ export default function Comparison(){
         axios.get(`https://statsapi.web.nhl.com/api/v1/people/${playerOneId}`)
         .then(res => {
             setPlayerOneName(res.data.people[0].fullName);
-            console.log(playerOneName)
             setPlayerOnePosition(res.data.people[0].primaryPosition.name)
             //console.log(res.data)
             //console.log(res.data.people[0].primaryPosition.name)
@@ -85,7 +84,6 @@ export default function Comparison(){
         axios.get(`https://statsapi.web.nhl.com/api/v1/people/${playerTwoId}`)
         .then(res => {
             setPlayerTwoName(res.data.people[0].fullName);
-            console.log(playerTwoName)
             setPlayerTwoPosition(res.data.people[0].primaryPosition.name);
             // console.log(playerTwoPosition)
             //console.log(res.data.people[0].primaryPosition.name)
@@ -135,7 +133,7 @@ export default function Comparison(){
             )}
             <Comparison2 handleChange={handlePlayerTwoChange}/>
             <button className="compare--submit" onClick={handleCompareSubmit}>Compare</button>
-            {showStats && playerOnePosition != "Goalie" && playerTwoPosition != "Goalie" && playerOneStats && playerTwoStats && playersForComparison1.length > 0 && ( 
+            {showStats && playerOnePosition != "Goalie" && playerTwoPosition != "Goalie" && playerOneStats && playersForComparison1.length > 0 && playerTwoStats && ( 
             <div className="comparison--display--one">
                 <table className="comparison--table--one">
                     <thead>
@@ -205,7 +203,7 @@ export default function Comparison(){
             </table>
             </div>
             )}
-            {showStats && playerOnePosition === "Goalie" && playerTwoPosition === "Goalie" && playersForComparison1.length > 0 && (
+            {showStats && playerOnePosition === "Goalie" && playerTwoPosition === "Goalie" && playersForComparison1.length > 0 && playerTwoStats && (
                 <div className="goalie--comparison">
                     <table className="goalie--table--one">
                         <thead>
@@ -236,15 +234,15 @@ export default function Comparison(){
                             </tr>
                             <tr>
                                 <td>Save Percentage</td>
-                                <td>{playerOneStats.stat.savePercentage.toFixed(3)}</td>
+                                <td>{parseFloat(playerOneStats.stat.savePercentage).toFixed(3)}</td>
                             </tr>
                             <tr>
                                 <td>Goals Against</td>
-                                <td>{playerOneStats.stat.goalAgainstAverage.toFixed(2)}</td>
+                                <td>{parseFloat(playerOneStats.stat.goalAgainstAverage).toFixed(3)}</td>
                             </tr>
                             <tr>
                                 <td>PowerPlay Save Percentage</td>
-                                <td>{playerOneStats.stat.powerPlaySavePercentage.toFixed(3)}</td>
+                                <td>{parseFloat(playerOneStats.stat.powerPlaySavePercentage).toFixed(3)}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -277,15 +275,15 @@ export default function Comparison(){
                             </tr>
                             <tr>
                                 <td>Save Percentage</td>
-                                <td>{playerTwoStats.stat.savePercentage.toFixed(3)}</td>
+                                <td>{parseFloat(playerTwoStats.stat.savePercentage).toFixed(3)}</td>
                             </tr>
                             <tr>
                                 <td>Goals Against</td>
-                                <td>{playerTwoStats.stat.goalAgainstAverage.toFixed(2)}</td>
+                                <td>{parseFloat(playerTwoStats.stat.goalAgainstAverage).toFixed(3)}</td>
                             </tr>
                             <tr>
                                 <td>PowerPlay Save Percentage</td>
-                                <td>{playerTwoStats.stat.powerPlaySavePercentage.toFixed(3)}</td>
+                                <td>{parseFloat(playerTwoStats.stat.powerPlaySavePercentage).toFixed(3)}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -374,3 +372,4 @@ export default function Comparison(){
         </div>
     )
 }
+

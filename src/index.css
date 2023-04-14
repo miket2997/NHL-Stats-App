@@ -305,7 +305,8 @@ button, select {
 }
 
 .comparison {
-  height: 120vh;
+  height: auto;
+  min-height: 100vh;
 }
 
 .comparison, .comparison2 {
@@ -542,6 +543,10 @@ small {
   .home {
     min-height: 220vh;
   }
+  .comparison {
+    min-height: 100vh;
+    padding-bottom: 30px;
+  }
 }
 
 @media (min-width: 300px) and (max-width: 400px) {
@@ -576,9 +581,8 @@ small {
   }
 
   .goalie--comparison {
-    font-size: 7px;
+    font-size: 10px;
   }
-
 
 }
 
