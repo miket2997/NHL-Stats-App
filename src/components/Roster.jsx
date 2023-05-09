@@ -35,7 +35,7 @@ export default function Roster(){
                         <tr key={player.person.id}>
                             <td>{player.person.fullName} #{player.jerseyNumber}</td>
                             <td>{player.position.name}</td>
-                            <td className="link">
+                            <td>
                                 <Link to={`/playerDetails/${player.person.id}`}>
                                     Go to player stats/details
                                 </Link> 

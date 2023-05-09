@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ThemeContext } from "../ThemeContext";
 import Comparison2 from "./Comparison2";
@@ -9,6 +10,7 @@ import GoalieCompTwo from "./GoalieCompTwo";
 
 
 export default function Comparison(){
+    const navigate = useNavigate();
     // Theme Context
     const {color} = useContext(ThemeContext);
     // Team for first player
@@ -118,7 +120,7 @@ export default function Comparison(){
     return (
         <div className={`${color} comparison`}>
             <h1 className="comparison--h1">Player Comparison</h1>
-            <small style={ { color: "red", fontWeight: "bolder" } }>Note: Goalies can only be compared to other goalies.</small>
+            <small className="note">Note: Goalies can only be compared to other goalies.</small>
             <label className="comparison--label--team">
                 <h1 className="player--one--title">Player One</h1>
                 Choose a Team to Select Player From
@@ -204,6 +206,7 @@ export default function Comparison(){
                 </div>
             )}
             { showStats && <button className="reset--stats" onClick={ removeStats }>Clear stats</button> }
+            <button className="comparison--to--home" onClick={ () => navigate("/") }>Go to home page</button>
         </div>
     )
 }
