@@ -37,7 +37,7 @@ export default function Comparison2(props){
 
     function reset2(){
         setPlayersForComparison2("");
-        setSelectedTeamForComparison2("")
+        setSelectedTeamForComparison2("");
     }
 
     

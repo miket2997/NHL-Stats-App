@@ -156,9 +156,8 @@ button, select {
   margin: 20px 0;
 }
 
-.light .selected--team--info > a {
+.selected--team--info > a {
   text-decoration: none;
-  color: rgb(0, 0, 255);
   font-family: monospace;
   font-size: 28px;
   margin: 20px 0;
@@ -166,14 +165,12 @@ button, select {
 }
 
 .dark .selected--team--info > a {
-  text-decoration: none;
-  color: rgb(95, 95, 230);
-  font-family: monospace;
-  font-size: 28px;
-  margin: 20px 0;
-  text-align: center;
+  color: rgb(0, 255, 0);
 }
 
+.selected--team--info > a:hover {
+  text-decoration: underline;
+}
 
 .roster--button, .reset--btn {
   padding: 10px 20px;
@@ -282,17 +279,6 @@ button, select {
   color: white;
 }
 
-.no--stats {
-  display: flex;
-  text-align: center;
-  font-size: 18px;
-  margin: auto;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 0;
-  height: 25vh;
-}
-
 .navigate--buttons {
   display: flex;
   justify-content: center;
@@ -386,14 +372,14 @@ small {
 .comparison--display--one {
   display: flex;
   justify-content: center;
-  width: 80%;
+  width: 100%;
   margin-top: 10px;
 }
 
 .comparison--table--one,
 .comparison--table--two {
   border-collapse: collapse;
-  width: 40%;
+  width: 100%;
 }
 
 .light .comparison--table--one th,
@@ -425,14 +411,14 @@ small {
 .goalie--comparison {
   display: flex;
   justify-content: center;
-  width: 80%;
+  width: 100%;
   margin-top: 10px;
 }
 
 .goalie--table--one,
 .goalie--table--two {
   border-collapse: collapse;
-  width: 40%;
+  width: 100%;
 }
 
 .light .goalie--table--one th,
@@ -475,57 +461,25 @@ small {
   border: 1px solid #ccc;
 }
 
-.no--player--one--stats, .no--playertwo--stats {
+.no--player--one--stats, .no--player--two--stats {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 80%;
   margin-top: 10px;
+  padding: 0 20px;
+  height: 25vh;
 }
 
-.player--one--nostats--table, .no--player2--table {
-  width: 40%;
-  border-collapse: collapse;
+.reset--stats {
+  background-color: red;
+  margin-top: 30px;
+  padding: 5px 10px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  color: white;
 }
-
-.no--player2--table {
-  margin-left: 5px;
-}
-
-.light .player--one--nostats--table th,
-.light .no--player2--table th {
-  background-color: lightgray;
-  border: 1px solid black;
-  padding: 5px;
-  text-align: left;
-}
-
-.dark .player--one--nostats--table th,
-.dark .no--player2--table th {
-  background-color: rgb(37, 90, 131);
-  border: 1px solid black;
-  padding: 5px;
-  text-align: left;
-}
-
-.player--one--nostats--table td,
-.no--playertwo--stats td {
-  border: 1px solid black;
-  padding: 5px;
-  text-align: left;
-}
-
-.two--no--show {
-  margin-left: 5px;
-}
-
-
-.neither--stats {
-  text-align: center;
-  max-width: 90%;
-}
-
-
 
 .footer {
   display: flex;
@@ -548,6 +502,9 @@ small {
   .comparison {
     min-height: 100vh;
     padding-bottom: 30px;
+  }
+  .goalie--comparison {
+    padding: 0 10px;
   }
 }
 
@@ -620,6 +577,67 @@ small {
   .goalie--comparison {
     font-size: 9.5px;
   }
- 
+}
+@media screen and (min-width: 700px) {
+  .comparison--table--one,
+  .comparison--table--two {
+    width: 250px;
+    font-size: larger;
+  }
+}
 
+@media screen and (max-width: 300px) {
+  .goalie--comparison {
+    font-size: 8px;
+    padding: 0 5px;
+  }
+  .nav--links {
+    font-size: 14px;
+  }
+
+  .toggleBtn.dark {
+    font-size: 14px;
+    color: orange;
+  }
+
+  .toggleBtn.light {
+    font-size: 14px;
+    color: green;
+  }
+
+  @media screen and (max-width: 300px) {
+    .home {
+      text-align: center;
+      padding: auto 10px;
+    }
+    .main--title {
+      font-size: 30px;
+      margin: 5px 10px;
+    }
+    .home--label {
+      font-size: 24px;
+    }
+    .home--team--select {
+      font-size: 12px;
+    }
+    .selected--team--info h2 {
+      font-size: 19px;
+      margin: 5px 10px;
+      font-weight: bold;
+    }
+    .selected--team--info p {
+      font-size: 16px;
+    }
+    .selected--team--info > a {
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (max-width: 590px) {
+  .no--player--one--stats, .no--player--two--stats {
+    width: auto;
+    max-width: 125px;
+    margin: auto;
+  }
 }
